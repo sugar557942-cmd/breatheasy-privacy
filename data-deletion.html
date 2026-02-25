@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숨쉬다 - 데이터 삭제 요청</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --highlight: #e74c3c;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p,
+        ul {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-text {
+            font-weight: bold;
+            color: var(--highlight);
+        }
+
+        .contact-box {
+            background-color: #f1f8e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .contact-box p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>숨쉬다 - 데이터 삭제 안내</h1>
+
+        <p>'숨쉬다(BreatheEasy)' 앱을 이용해 주셔서 감사합니다. 사용자의 개인정보 보호 및 데이터 통제권을 철저하게 보장하기 위해 데이터 삭제 방법 및 기준을 안내해 드립니다.</p>
+
+        <div class="contact-box">
+            <p><strong>앱 이름:</strong> 숨쉬다 (BreatheEasy)</p>
+            <p><strong>개발자/운영자:</strong> GoodSoom</p>
+            <p><strong>고객 문의:</strong> insightbuild@daum.net</p>
+        </div>
+
+        <h2>1. 데이터 삭제 방법</h2>
+        <p>기록하신 데이터 성격에 따라 두 가지 삭제 방식이 있습니다.</p>
+
+        <h3>1) 로컬/기기 내 데이터 (증상, 복약 및 생활 기록)</h3>
+        <ul>
+            <li><strong>앱 삭제 (모바일 앱):</strong> 스마트폰 기기 내에서 앱을 삭제(Uninstall)하면 내장 저장소에 기록된 모든 로컬 데이터가 자동으로 완전히 삭제됩니다.
+            </li>
+            <li><strong>브라우저 데이터 지우기 (웹):</strong> 사용하는 브라우저 설정에서 '사이트 및 캐시 데이터(로컬 스토리지)'를 지우시면 해당 정보가 영구 파기됩니다.</li>
+        </ul>
+
+        <h3>2) Firebase 계정 및 클라우드 데이터</h3>
+        <p>계정 연동을 이용한 사용자 정보 및 관련 클라우드 기록은 아래 방법으로 삭제 요청이 필요합니다.</p>
+        <ul>
+            <li><strong>이메일 삭제 요청:</strong> <span class="highlight-text">insightbuild@daum.net</span> 으로 계정 삭제 요청을 보내주시기
+                바랍니다.</li>
+            <li><strong>메일 필수 포함 내역:</strong> <br>
+                - 제목: [숨쉬다] 데이터 삭제 요청<br>
+                - 본문: 앱에 가입하신 <strong>이메일 주소</strong>를 반드시 기재해 주세요.</li>
+        </ul>
+
+        <h2>2. 데이터 삭제 처리 기간 및 범위</h2>
+        <ul>
+            <li><strong>처리 기간:</strong> 접수일로부터 <strong>최대 7영업일 이내</strong>에 데이터 영구 삭제 처리가 완료됩니다.</li>
+            <li><strong>삭제되는 데이터 목록:</strong>
+                <ul>
+                    <li>계정 정보 (이메일 및 로그인 데이터)</li>
+                    <li>앱 사용 이력 및 기록 (Analytics 데이터)</li>
+                    <li>클라우드와 동기화된 기기 내 증상 및 복약 기록 등 모든 개인 데이터</li>
+                </ul>
+            </li>
+            <li><strong>보관 데이터: 삭제된 이후 보관되거나 백업용으로 별도 분리되는 데이터는 일절 없습니다. (전부 삭제)</strong></li>
+        </ul>
+
+        <div class="footer">
+            <p>&copy; 2026 GoodSoom. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
