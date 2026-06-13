@@ -3,142 +3,454 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보 처리방침 - 숨쉬기 좋은 날 (BreatheEasy)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>개인정보 처리방침 - 숨쉬다 (BreatheEasy)</title>
     <style>
         :root {
-            --primary-color: #4CAF50;
-            --text-main: #333333;
-            --text-light: #666666;
-            --bg-color: #f9f9f9;
-            --card-bg: #ffffff;
+            --primary: #4A8DB7;
+            --accent: #6BA3C7;
+            --bg: #FFFFFF;
+            --bg-light: #F8FAFE;
+            --text-main: #2C3E50;
+            --text-sub: #7F8C9B;
+            --border: #E0EBF5;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
             color: var(--text-main);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
+            background: var(--bg);
+            max-width: 480px;
+            margin: 0 auto;
+            padding-bottom: 40px;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 40px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        /* 헤더 */
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
         }
 
-        h1 {
-            color: var(--primary-color);
-            font-size: 24px;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
+        .back-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 20px;
         }
 
-        h2 {
-            font-size: 18px;
-            color: #2c3e50;
-            margin-top: 30px;
-            margin-bottom: 15px;
+        .back-btn:active { background: var(--bg-light); }
+
+        .header-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        p,
-        ul {
-            margin-bottom: 15px;
-            color: var(--text-light);
+        /* 본문 */
+        .content {
+            padding: 24px 20px;
         }
 
-        ul {
-            padding-left: 20px;
+        .effective-date {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
         }
 
-        li {
-            margin-bottom: 8px;
+        /* 목차 */
+        .toc {
+            padding: 16px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
         }
 
-        .highlight {
-            font-weight: 600;
-            color: var(--text-main);
+        .toc h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .toc ol {
+            padding-left: 18px;
+        }
+
+        .toc li {
+            margin-bottom: 4px;
+        }
+
+        .toc a {
+            font-size: 14px;
+            color: var(--text-sub);
+            text-decoration: none;
+        }
+
+        .toc a:hover { color: var(--primary); }
+
+        /* 조항 */
+        .article {
+            margin-bottom: 36px;
+        }
+
+        .article-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        p { margin-bottom: 10px; }
+        ul, ol { margin-left: 20px; margin-bottom: 10px; }
+        li { margin-bottom: 6px; }
+
+        .tag-required {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: var(--primary);
+            border-radius: 4px;
+            padding: 1px 6px;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+
+        .tag-optional {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            padding: 1px 6px;
+            margin-right: 4px;
+            vertical-align: middle;
+        }
+
+        .notice-box {
+            margin: 12px 0;
+            padding: 14px 16px;
+            background: var(--bg-light);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+        }
+
+        .notice-box strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
         }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
-            text-align: center;
-            font-size: 14px;
-            color: #999;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-sub);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
+        .footer table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-            h1 {
-                font-size: 20px;
-            }
+        .footer td {
+            padding: 6px 0;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .footer td:first-child {
+            font-weight: 600;
+            color: var(--text-main);
+            width: 110px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>개인정보 처리방침</h1>
+    <div class="header">
+        <button class="back-btn" onclick="window.history.back()" aria-label="뒤로 가기">&#8249;</button>
+        <span class="header-title">개인정보 처리방침</span>
+    </div>
 
-        <p><span class="highlight">'숨쉬기 좋은 날 (BreatheEasy)'</span> (이하 '앱')은(는) 사용자의 <strong>개인정보 보호를 최우선으로
-                생각하며</strong>, 안전한 앱 사용 환경을 제공하기 위해 최선을 다하고 있습니다.</p>
-
-        <h2>1. 수집하는 정보</h2>
-        <p>본 앱은 사용자가 더 나은 비염 관리를 할 수 있도록 사용자가 <strong>직접 입력한 아래의 데이터만</strong>을 처리합니다.</p>
-        <ul>
-            <li>개별 증상 기록 (콧물, 코막힘 등)</li>
-            <li>생활 및 투약(복약) 기록</li>
-            <li>알레르기 트리거 정보</li>
-        </ul>
-
-        <h2>2. 데이터 저장 방식 (서버 전송 없음)</h2>
-        <p>본 앱은 사용자의 데이터를 <strong>사용자 개인 기기 내(localStorage)에만 안전하게 저장</strong>합니다.</p>
-        <ul>
-            <li>수집된 모든 데이터는 <strong>외부 서버로 전송되지 않습니다.</strong></li>
-            <li>개발자 및 타인은 사용자의 기록에 접근할 수 없습니다.</li>
-        </ul>
-
-        <h2>3. 외부 API 사용</h2>
-        <p>앱 내에서 날씨 및 환경 정보를 제공하기 위해 <strong>대한민국 기상청(KMA) 데이터 API</strong>를 호출합니다. 이 과정에서 사용자의 어떠한 개인정보나 식별 정보도 기상청에
-            전달되지 않습니다.</p>
-
-        <h2>4. 제3자 제공 및 광고</h2>
-        <ul>
-            <li>본 앱은 어떠한 경우에도 사용자의 정보를 <strong>제3자에게 제공하거나 판매하지 않습니다.</strong></li>
-            <li>본 앱에는 <strong>광고가 포함되어 있지 않습니다.</strong> (No Ads)</li>
-        </ul>
-
-        <h2>5. 데이터 삭제</h2>
-        <p>사용자가 기기에서 <strong>앱을 삭제(언인스톨)</strong>하거나 브라우저의 <strong>캐시 및 데이터를 지울 때</strong>, 저장된 모든 정보는 즉시 영구 삭제되며 복구가
-            불가능합니다.</p>
-
-        <h2>6. 아동의 개인정보</h2>
-        <p>본 앱은 <strong>만 14세 미만 아동의 개인정보를 별도로 수집하지 않습니다.</strong> 앱은 누구나 안전하게 사용할 수 있습니다.</p>
-
-        <h2>7. 연락처 정보</h2>
-        <p>개인정보 처리방침과 관련하여 궁금한 사항이나 문의가 있으신 경우 언제든지 아래 연락처로 문의해 주시기 바랍니다.</p>
-        <ul>
-            <li><strong>개발자/운영자:</strong> GoodSoom</li>
-            <li><strong>이메일:</strong> insightbuild@daum.net</li>
-        </ul>
-
-        <div class="footer">
-            <p>시행일: 2026년 2월 26일</p>
-            <p>&copy; 2026 GoodSoom. All rights reserved.</p>
+    <div class="content">
+        <div class="effective-date">
+            시행일: 2026-05-13 · 최종 개정: 2026-06-13
+            <span style="display:block; margin-top:6px; font-size:12px; line-height:1.6;">
+                ※ 2026-06-13 개정 안내: 이용자 동의에 기반한 환경 점수 추론 전송(격자 수준 대략 위치·가명 지표) 고지,
+                휴면 회원 정책, 건강정보(민감정보) 별도 동의, 기기 저장 데이터 암호화(AES-GCM) 안내를 명확화했습니다.
+            </span>
         </div>
+
+        <p>
+            '숨쉬다 (BreatheEasy)' (이하 '앱')는 사용자의 개인정보를 소중하게 여기며,
+            「개인정보 보호법」을 비롯한 관련 법령을 준수합니다. 본 방침은 앱이 수집하는
+            정보의 항목, 수집 목적, 처리 방식 및 이용자 권리를 명확히 안내하기 위해
+            작성되었습니다.
+        </p>
+
+        <div class="notice-box" style="border-left: 3px solid #C75E76;">
+            <strong>의료기기 아님 안내</strong>
+            본 앱은 「의료기기법」상 의료기기가 아니며, 의학적 진단·치료·예방 또는 의료적 판단을 대체할 수 없습니다.
+            앱이 제공하는 점수·분석·권고는 사용자가 본인의 컨디션을 관리하기 위한 참고용 정보이며,
+            증상이 지속되거나 악화되는 경우 반드시 의료진의 진단을 받으시기 바랍니다.
+        </div>
+
+        <div class="notice-box">
+            <strong>만 14세 미만 가입 제한</strong>
+            본 앱은 만 14세 이상만 이용 가능하며, 만 14세 미만 아동의 회원가입을 받지 않습니다.
+            만 14세 미만 아동의 개인정보가 본인 또는 법정대리인의 동의 없이 수집된 사실이 확인된 경우,
+            즉시 해당 계정과 데이터를 삭제합니다.
+        </div>
+
+        <!-- 목차 -->
+        <div class="toc">
+            <h3>목차</h3>
+            <ol>
+                <li><a href="#art1">제1조. 수집하는 정보</a></li>
+                <li><a href="#art2">제2조. 수집 목적</a></li>
+                <li><a href="#art3">데이터 저장 및 처리 방식</a></li>
+                <li><a href="#art4">외부 API 사용</a></li>
+                <li><a href="#art5">제3자 제공</a></li>
+                <li><a href="#art6">광고</a></li>
+                <li><a href="#art7">데이터 삭제</a></li>
+                <li><a href="#art8">이용자 권리</a></li>
+                <li><a href="#art9">방침 변경</a></li>
+                <li><a href="#art10">개인정보 보호책임자</a></li>
+            </ol>
+        </div>
+
+        <!-- 제1조 -->
+        <div class="article" id="art1">
+            <div class="article-title">제1조. 수집하는 정보</div>
+            <p>앱은 서비스 제공을 위해 아래 정보를 수집합니다.</p>
+
+            <p><strong>필수 항목 (기기 내 저장 및 식별자 수집)</strong></p>
+            <ul>
+                <li><strong>계정 정보</strong>: 이메일 주소, 이름 (또는 Google 계정 식별자)</li>
+                <li><strong>건강 정보</strong>: 개별 증상 기록 (콧물, 코막힘, 재채기 등), 투약(복약) 기록</li>
+                <li><strong>생활 습관</strong>: 수면, 운동, 음주 등 생활 패턴 기록</li>
+                <li><strong>알레르기 정보</strong>: 개인별 알레르기 트리거 정보</li>
+            </ul>
+
+            <p><strong>일시 수집 항목 (검증 후 즉시 폐기 — 저장하지 않음)</strong></p>
+            <ul>
+                <li><strong>출생년도</strong>: 만 14세 이상 여부 확인 목적으로만 가입 시 입력받으며,
+                    검증 후 별도로 저장하지 않습니다. (개인정보보호법 제3조 최소 수집 원칙)</li>
+            </ul>
+
+            <p><strong>선택 항목 (비식별 처리 후 외부 전송)</strong></p>
+            <ul>
+                <li><strong>대략적 위치 정보</strong>: 시·도 수준의 지역 정보 (정밀 좌표 제외)</li>
+                <li><strong>증상 통계 정보</strong>: 비식별화된 증상 심각도 점수 및 통계</li>
+            </ul>
+
+            <div class="notice-box">
+                <strong>민감정보(건강 데이터) 별도 동의 및 보호 고지</strong>
+                증상 기록 및 투약 기록 등 건강 관련 정보(민감정보)는 일반 개인정보 수집 동의와 <strong>분리하여 가입 시 별도로 동의</strong>를 받습니다. 「개인정보보호법」 제23조 및 구글 플레이 '건강 데이터' 정책을 준수하여 관리되며, 수집된 민감정보는 서비스 제공·품질 개선 및 (동의 시)비식별 통계 분석 이외의 용도로 절대 활용되지 않습니다.
+            </div>
+        </div>
+
+        <!-- 제2조 -->
+        <div class="article" id="art2">
+            <div class="article-title">제2조. 수집 목적</div>
+            <p><strong>필수 항목 수집 목적</strong></p>
+            <ul>
+                <li>비염 증상 관리 서비스 제공</li>
+                <li>복약 일정 관리 및 복약 알림 기능 제공</li>
+                <li>맞춤형 생활 환경 가이드 제공</li>
+            </ul>
+            <p><strong>선택 항목 수집 목적</strong></p>
+            <ul>
+                <li>익명 통계 분석 및 서비스 개선</li>
+            </ul>
+        </div>
+
+        <!-- 제3조 -->
+        <div class="article" id="art3">
+            <div class="article-title">제3조. 데이터 저장 및 처리 방식</div>
+            <p>
+                <strong>1. 로컬 우선 저장</strong>:
+                증상 기록·복약 기록·생활습관 기록·약 정보·위치(시·도·동네명)·알레르기 정보·일별 환경 영향 지수 등
+                모든 의료/생활 데이터는 사용자의 기기 내 로컬 저장소에 보관됩니다.
+                개발자 서버로는 <strong>원본 의료 데이터를 전송하지 않으며</strong>, 다만 <strong>이용자가 동의한 경우에 한해</strong>
+                환경 점수 개인화(맞춤 분석)를 위해 비식별·가명 처리된 지표(격자 수준 대략 위치, 가명 ID, 증상 강도 구간 등 — 제4조 참조)만
+                추론 서버로 전송·처리됩니다. 동의하지 않으면 모든 점수는 기기 내에서만 계산됩니다.
+            </p>
+            <p>
+                <strong>2. 저장 시 암호화 (안전조치)</strong>:
+                위 로컬 데이터 중 자유 텍스트(메모) 및 약 이름·복용량·별명 등 민감 필드는
+                Web Crypto API의 <strong>AES-GCM 256bit</strong> 알고리즘으로 자동 암호화되어 저장됩니다.
+                암호화 키는 추출 불가능(non-extractable) CryptoKey 형태로 별도의 키스토어에만 존재하며 외부로 반출되지 않습니다.
+                로그아웃 또는 회원 탈퇴 시 키와 모든 데이터가 즉시 폐기됩니다.
+            </p>
+            <p>
+                <strong>3. 서버 보관 항목 (개발자 보유)</strong>:
+                회원 식별을 위한 이메일·UID, Google Play를 통한 결제 정보·구독 상태,
+                그리고 동의 시에 한해 전송되는 <strong>비식별 익명 통계</strong>(시·도 단위 환경 정보와 증상 강도 구간 등)만이
+                외부 서버(Firebase Authentication, Cloud Firestore)에 보관됩니다.
+            </p>
+            <p>
+                <strong>4. 안드로이드 자동 백업 차단</strong>:
+                Google Drive 자동 백업 및 신규 기기 이전 시 의료 정보가 외부로 노출되지 않도록
+                안드로이드 매니페스트에서 자동 백업을 명시적으로 비활성화하였습니다.
+            </p>
+            <div class="notice-box">
+                <strong>익명 통계 비식별 처리 기준</strong>
+                별도 동의를 받은 경우에 한해 수집되는 통계 데이터는 아래 방법으로 비식별 처리되어
+                특정 개인을 식별할 수 없는 형태로만 활용됩니다.
+                <ul style="margin-top: 8px;">
+                    <li><strong>지역 통합</strong>: 정확한 GPS 좌표 → 시·도 수준 변환 후 좌표 즉시 폐기</li>
+                    <li><strong>기간 라운딩</strong>: 정확한 날짜(YYYY-MM-DD) → 주 단위(ISO 주차) 변환</li>
+                    <li><strong>항목 범주화</strong>: 구체적 약 이름 → 약효 대분류(항히스타민제 등) 변환</li>
+                    <li><strong>심각도 구간화</strong>: 증상 점수(0~10) → 3단계(mild/moderate/severe) 변환</li>
+                </ul>
+                이메일, 이름, 기기 ID, 정확한 날짜, 정확한 좌표, 구체적 약 이름은 수집되지 않으며,
+                Firestore 보안 규칙(Security Rules)에서 식별 가능한 필드가 포함된 쓰기 요청을 서버 측에서 거부합니다.
+            </div>
+        </div>
+
+        <!-- 제4조 -->
+        <div class="article" id="art4">
+            <div class="article-title">제4조. 외부 API 및 위탁 처리</div>
+            <p>서비스 운영을 위해 아래 외부 사업자의 인프라를 이용하며, 각 사업자에 전달되는 정보 범위는 다음과 같습니다.</p>
+            <ul>
+                <li>
+                    <strong>Google (Firebase Authentication·Cloud Firestore·Analytics)</strong>: 회원 식별을 위한 이메일·UID,
+                    구독 상태 클레임, 익명 통계가 보관됩니다. 의료/생활 데이터는 전송되지 않습니다.
+                </li>
+                <li>
+                    <strong>Cloudflare Workers (날씨 프록시 · 결제 영수증 검증 · 환경 점수 추론)</strong>:
+                    기상청 API 키 보호와 Google Play 영수증 검증을 위한 중간 서버이며, KV 캐시에는 지역별 환경 데이터만 단기 저장됩니다.
+                    또한 <strong>이용자가 동의한 경우</strong> 환경 점수 개인화를 위해 <strong>격자(약 1km) 수준의 대략 위치</strong>와
+                    가명 처리된 증상·환경 지표가 추론 서버로 전송·처리됩니다.
+                    <strong>정밀 GPS 좌표·이름·이메일·정확한 약 이름은 전송되지 않으며</strong>, 동의하지 않으면 점수는 전부 기기 내에서만 계산됩니다.
+                </li>
+                <li>
+                    <strong>대한민국 기상청 (KMA)</strong> / <strong>한국환경공단</strong>:
+                    환경 정보(기상·미세먼지) 조회용. 사용자 식별 정보는 전달되지 않으며,
+                    위치 기반 조회 시에도 정밀 좌표 대신 격자 1km 수준의 지역 코드만 사용됩니다.
+                </li>
+                <li>
+                    <strong>Google Play (Google LLC)</strong>: 인앱 결제 처리 및 영수증 발급.
+                </li>
+            </ul>
+        </div>
+
+        <!-- 제5조 -->
+        <div class="article" id="art5">
+            <div class="article-title">제5조. 제3자 제공</div>
+            <p>앱은 사용자의 개인정보를 제3자에게 판매하거나 제공하지 않습니다.</p>
+            <p>다만 아래 경우는 예외입니다.</p>
+            <ul>
+                <li>법령 규정에 의거하거나 수사 목적으로 합법적 요청이 있는 경우</li>
+                <li>향후 광고 서비스 도입 시 광고 네트워크에 광고 식별자 등이 제공될 수 있으며, 이 경우 사전에 앱 내 공지를 통해 고지합니다.</li>
+            </ul>
+        </div>
+
+        <!-- 제6조 -->
+        <div class="article" id="art6">
+            <div class="article-title">제6조. 광고</div>
+            <p>
+                현재 앱에는 광고가 포함되어 있지 않습니다. 향후 서비스 운영을 위해 광고가 추가될 수 있으며,
+                이 경우 변경 내용을 앱 내 공지사항을 통해 사전 안내합니다.
+            </p>
+        </div>
+
+        <!-- 제7조 -->
+        <div class="article" id="art7">
+            <div class="article-title">제7조. 보유 기간 · 휴면 · 데이터 삭제</div>
+            <ul>
+                <li><strong>보유 기간</strong>: 회원 데이터는 회원 자격을 유지하는 동안 보유하며, 탈퇴 시 즉시 파기합니다(법령상 보존 의무가 있는 결제 영수증 등은 예외).</li>
+                <li><strong>휴면 회원</strong>: 1년 이상 접속하지 않으면 휴면 회원으로 전환됩니다. 휴면 전환 약 1개월 전(11개월 시점)에 사전 안내한 뒤, 1년이 지나면 계정과 관련 정보를 파기(또는 분리 보관)합니다. 휴면 전환 후 다시 접속하시면 보호를 위해 기기 내 데이터를 정리하고 재로그인을 안내합니다.</li>
+                <li>앱을 삭제(언인스톨)하거나 브라우저 캐시·데이터를 삭제하면 기기에 저장된 모든 정보가 즉시 영구 삭제되며 복구할 수 없습니다.</li>
+                <li>선택 동의(익명 통계)를 철회하면 기기 내 대기열 데이터가 즉시 삭제됩니다.</li>
+                <li>앱 내 '마이페이지 → 데이터 초기화'를 통해 직접 삭제할 수 있습니다.</li>
+            </ul>
+        </div>
+
+        <!-- 제8조 -->
+        <div class="article" id="art8">
+            <div class="article-title">제8조. 이용자 권리</div>
+            <p>사용자는 다음 권리를 행사할 수 있습니다.</p>
+            <ul>
+                <li>개인정보 열람, 정정, 삭제 및 처리 정지 요청</li>
+                <li>선택 동의의 언제든지 철회 (철회 후에도 앱 기본 기능 이용에 영향 없음)</li>
+            </ul>
+            <p>
+                위 권리는 앱 내 '마이페이지 → 설정' 또는 아래 개인정보 보호책임자 연락처를 통해 행사할 수 있습니다.
+            </p>
+        </div>
+
+        <!-- 제9조 -->
+        <div class="article" id="art9">
+            <div class="article-title">제9조. 방침 변경</div>
+            <p>
+                본 방침은 서비스 변경 또는 관련 법령에 따라 업데이트될 수 있습니다.
+                변경 시 앱 내 공지사항을 통해 사전 안내합니다.
+                변경 사항은 고지 후 7일 이후부터 적용됩니다.
+            </p>
+        </div>
+
+        <!-- 제10조 -->
+        <div class="article" id="art10">
+            <div class="article-title">제10조. 개인정보 보호책임자</div>
+            <p>개인정보 처리방침과 관련한 문의는 아래 담당자에게 연락해 주시기 바랍니다.</p>
+            <div class="footer">
+                <table>
+                    <tr>
+                        <td>운영자</td>
+                        <td>인사이트빌드(Insightbuild) · 서비스 브랜드 'GoodSoom'</td>
+                    </tr>
+                    <tr>
+                        <td>책임자</td>
+                        <td>신준하</td>
+                    </tr>
+                    <tr>
+                        <td>연락처</td>
+                        <td>insightbuild@daum.net</td>
+                    </tr>
+                    <tr>
+                        <td>시행일 · 개정일</td>
+                        <td>2026-05-13 시행 · 2026-06-13 개정</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-sub); text-align: center; margin-top: 24px;">
+            &copy; 2026 인사이트빌드(Insightbuild). All rights reserved.
+        </p>
     </div>
 </body>
 
